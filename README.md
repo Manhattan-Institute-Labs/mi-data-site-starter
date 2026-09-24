@@ -4,6 +4,9 @@ A dataset that refreshes itself on a schedule, and a published page built from
 it. Modeled on
 [flock-crime-tracker](https://github.com/CharlesFainLehman/flock-crime-tracker).
 
+Use this template to make your own copy. The repository is yours — your
+account, your name on every commit.
+
 ## Start here
 
 ```bash
@@ -27,19 +30,29 @@ Never edit `site/`. It is regenerated every run.
 ## Publishing it
 
 1. **Settings → Pages → Source: GitHub Actions.** Do this once, before the
-   first run, or the deploy step fails.
+   first run, or the deploy step fails. A template copies files, not settings,
+   so this does not come across on its own.
 2. Push to `main`. The workflow builds and deploys.
 3. **Actions tab → Update data and publish → Run workflow** to trigger it by
    hand at any time.
 
-The site lands at `https://<org>.github.io/<repo>/`. For a custom domain, see
-the workshop handout.
+The site lands at `https://<your-username>.github.io/<repo>/`. For a custom
+domain, see the workshop handout.
+
+Publishing needs the repository to be public, unless you have GitHub Pro.
 
 ## The daily job
 
 `.github/workflows/update.yml` runs the pipeline every morning, commits any
 changed data, and republishes. The commit history becomes a record of what
 changed and when.
+
+If you edit anything under `.github/workflows/`, your push will be rejected
+unless your credentials carry the `workflow` scope. Fix it once with:
+
+```bash
+gh auth refresh -h github.com -s workflow
+```
 
 If your pipeline calls an API, add the key under **Settings → Secrets and
 variables → Actions** and reference it in the workflow's `env:` block. Never

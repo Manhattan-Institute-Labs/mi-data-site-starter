@@ -2,7 +2,7 @@
 
 This is a small data site: a pipeline that refreshes a dataset on a schedule,
 and a static page built from it, published to GitHub Pages. It was created from
-the Manhattan Institute data-site template.
+the MI data-site template and lives in the author's own GitHub account.
 
 ## Layout
 
@@ -41,9 +41,10 @@ Run everything with `python pipeline/run_update.py`.
 - **Never commit secrets.** API keys go in repository secrets and are read from
   the environment. If you find a key in a file, stop and say so.
 - **Never put internal MI data in this repository.** No CRM exports, no donor
-  records, no licensed or purchased datasets, no anything from Virtuous,
-  Snowflake, or Piano. These repositories are public. Published data must be
-  public data that we are permitted to redistribute.
+  records, no licensed or purchased datasets, nothing from Virtuous, Snowflake,
+  or Piano. This repository is public and sits on a personal account, so there
+  is no second pair of eyes. Published data must be public data the author is
+  permitted to redistribute. If you are unsure about a file, stop and ask.
 - **Never remove the provenance footer** — last updated, source, method note,
   CSV download. If the numbers are shown, their origin is shown with them.
 - **Do not weaken `validate_data.py` to make a run pass.** If validation fails,
